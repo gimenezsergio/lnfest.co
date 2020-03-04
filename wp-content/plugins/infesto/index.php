@@ -13,28 +13,26 @@
               'labels' => array(
               'name' => __( 'Competiciones' ),
               'singular_name' => __( 'competicion' ),
-              'add_new' => __( 'Add New Competicion' ),
-              'add_new_item' => __( 'Add New Show' ),
-              'edit' => __( 'Edit' ),
-              'edit_item' => __( 'Edit Show' ),
-              'new_item' => __( 'New Show' ),
-              'view' => __( 'View Show' ),
-              'view_item' => __( 'View Show' ),
-              'search_items' => __( 'Search Shows' ),
-              'not_found' => __( 'No shows found' ),
-              'not_found_in_trash' => __( 'No shows found in Trash' ),
-              'parent' => __( 'Parent Show' ),
+              'add_new' => __( 'Agregar nueva Competicion' ),
+              'add_new_item' => __( 'Agregar nueva Competicion' ),
+              'edit' => __( 'Editar' ),
+              'edit_item' => __( 'Editar Competicion' ),
+              'new_item' => __( 'Nueva competicion' ),
+              'view' => __( 'Ver Competiciones' ),
+              'view_item' => __( 'Ver competicion' ),
+              'search_items' => __( 'Buscar competiciones' ),
+              'not_found' => __( 'No se encontraton resultados' ),
+              'not_found_in_trash' => __( 'No se encontraron competiciones en la papelera' ),
+              'parent' => __( 'Parent Competicion' ),
                  ),
               'public' => true,
               'show_ui' => true,
               'publicly_queryable' => true,
               'exclude_from_search' => false,
               'menu_position' => 10,
-              'menu_icon' => get_stylesheet_directory_uri() . '/img/nrt-shows.png',
               'hierarchical' => true,
               'query_var' => true,
               'rewrite' => array( 'slug' => 'competiciones', 'with_front' => false ),
-
               'can_export' => true,
               'supports' => array(
               'post-thumbnails',
@@ -45,12 +43,21 @@
               );
  }
 
+ add_action("admin_init", "puntos_meta");
+ function puntos_meta(){
+    add_meta_box("puntos", "Puntos", "puntos", "competiciones", "normal", "low");
+}
 
+function puntos(){
+  ?>
+    <label>Radio - Altos - Altos medios</label>
+    <?php
+}
 
 
  add_action("admin_init", "price_meta");
  function price_meta(){
-  add_meta_box("price", "Puntaje", "Price", "competiciones", "normal", "low");
+    add_meta_box("price", "Puntaje", "Price", "competiciones", "normal", "low");
 }
 
  function price(){
