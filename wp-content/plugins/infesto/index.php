@@ -124,4 +124,19 @@ function save_meta(){
 
 
 
+function lnfest_categorias() {
+	register_taxonomy('lnfest_categorias', // The name of the taxonomy
+		array('competiciones'), // Name of the object type for the taxonomy object (built-in Post Type or any Custom Post Type)
+		array(
+			'hierarchical' => true, // Is this taxonomy hierarchical (have descendants) like categories or not hierarchical like tags
+			'label' => 'Categorias', // A plural descriptive name for the taxonomy
+			'singular_label' => 'Categorias', // Name for one object of this taxonomy
+			'show_in_rest' => true, // Enables REST API for Gutenberg
+			'rewrite' => array('slug' => 'categorias') // Customize the permalink structure slug
+		)
+	);
+}
+
+add_action( 'init', 'lnfest_categorias' );
+
 ?>
