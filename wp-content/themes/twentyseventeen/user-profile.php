@@ -117,6 +117,7 @@ get_header(); ?>
 	                        <label for="description"><?php _e('Biographical Information', 'profile') ?></label>
 	                        <textarea name="description" id="description" rows="3" cols="50"><?php the_author_meta( 'description', $current_user->ID ); ?></textarea>
 	                    </p><!-- .form-textarea -->
+											<input class="text-input" name="birth_date[day]" type="text" id="birth_date" />
 
 	                    <?php
 	                        //action hook for plugin and extra fields
