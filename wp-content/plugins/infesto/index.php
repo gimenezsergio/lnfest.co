@@ -8,22 +8,22 @@
  // ADD CUSTOM POST TYPE: SHOWS
  add_action( 'init', 'create_my_post_types' );
  function create_my_post_types() {
-              register_post_type( 'competiciones',
+              register_post_type( 'participaciones',
               array(
               'labels' => array(
-              'name' => __( 'Competiciones' ),
-              'singular_name' => __( 'competicion' ),
-              'add_new' => __( 'Agregar nueva Competicion' ),
-              'add_new_item' => __( 'Agregar nueva Competicion' ),
+              'name' => __( 'participaciones' ),
+              'singular_name' => __( 'participacion' ),
+              'add_new' => __( 'Agregar nueva participación' ),
+              'add_new_item' => __( 'Agregar nueva participación' ),
               'edit' => __( 'Editar' ),
-              'edit_item' => __( 'Editar Competicion' ),
-              'new_item' => __( 'Nueva competicion' ),
-              'view' => __( 'Ver Competiciones' ),
-              'view_item' => __( 'Ver competicion' ),
-              'search_items' => __( 'Buscar competiciones' ),
+              'edit_item' => __( 'Editar participación' ),
+              'new_item' => __( 'Nueva participación' ),
+              'view' => __( 'Ver participaciones' ),
+              'view_item' => __( 'Ver participación' ),
+              'search_items' => __( 'Buscar participaciones' ),
               'not_found' => __( 'No se encontraton resultados' ),
-              'not_found_in_trash' => __( 'No se encontraron competiciones en la papelera' ),
-              'parent' => __( 'Parent Competicion' ),
+              'not_found_in_trash' => __( 'No se encontraron participaciones en la papelera' ),
+              'parent' => __( 'Parent participación' ),
                  ),
               'public' => true,
               'show_ui' => true,
@@ -32,7 +32,7 @@
               'menu_position' => 10,
               'hierarchical' => true,
               'query_var' => true,
-              'rewrite' => array( 'slug' => 'competiciones', 'with_front' => false ),
+              'rewrite' => array( 'slug' => 'participaciones', 'with_front' => false ),
               'can_export' => true,
               'supports' => array(
               'post-thumbnails',
@@ -43,9 +43,9 @@
               );
  }
 
- add_action("admin_init", "puntos_meta");
+ //add_action("admin_init", "puntos_meta");
  function puntos_meta(){
-    add_meta_box("puntos", "Puntos", "puntos", "competiciones", "normal", "low");
+    add_meta_box("puntos", "Puntos", "puntos", "participaciones", "normal", "low");
 }
 
 function puntos(){
@@ -55,9 +55,9 @@ function puntos(){
 }
 
 
- add_action("admin_init", "price_meta");
+ //add_action("admin_init", "price_meta");
  function price_meta(){
-    add_meta_box("price", "Puntaje", "Price", "competiciones", "normal", "low");
+    add_meta_box("price", "Puntaje", "Price", "participaciones", "normal", "low");
 }
 
  function price(){
@@ -126,13 +126,13 @@ function save_meta(){
 
 function lnfest_categorias() {
 	register_taxonomy('lnfest_categorias', // The name of the taxonomy
-		array('competiciones'), // Name of the object type for the taxonomy object (built-in Post Type or any Custom Post Type)
+		array('participaciones'), // Name of the object type for the taxonomy object (built-in Post Type or any Custom Post Type)
 		array(
 			'hierarchical' => true, // Is this taxonomy hierarchical (have descendants) like categories or not hierarchical like tags
-			'label' => 'Categorias', // A plural descriptive name for the taxonomy
-			'singular_label' => 'Categorias', // Name for one object of this taxonomy
+			'label' => 'Participaciones', // A plural descriptive name for the taxonomy
+			'singular_label' => 'Participacion', // Name for one object of this taxonomy
 			'show_in_rest' => true, // Enables REST API for Gutenberg
-			'rewrite' => array('slug' => 'categorias') // Customize the permalink structure slug
+			'rewrite' => array('slug' => 'participaciones_cat') // Customize the permalink structure slug
 		)
 	);
 }
